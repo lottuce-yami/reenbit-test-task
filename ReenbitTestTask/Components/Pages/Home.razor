@@ -1,5 +1,27 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Main page</PageTitle>
 
 <h1>Main page</h1>
+<p>Upload a file to put into blob storage and receive a notification on the provided email.</p>
+
+<EditForm Model="Model" OnValidSubmit="@Submit" FormName="BlobStorageForm">
+    <div>
+        <label>
+            File:
+            <InputFile OnChange="@AddFile" accept=".docx"></InputFile>
+        </label>
+    </div>
+    <div>
+        <label>
+            E-mail:
+            <InputText @bind-Value="Model!.Email" />
+        </label>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+</EditForm>
