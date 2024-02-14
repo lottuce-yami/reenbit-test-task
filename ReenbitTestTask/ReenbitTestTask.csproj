@@ -4,7 +4,8 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
+      <UserSecretsId>806cee86-90a5-496b-8226-6a067477ca03</UserSecretsId>
+  </PropertyGroup>
 
     <ItemGroup>
       <Folder Include="wwwroot\bootstrap\" />
