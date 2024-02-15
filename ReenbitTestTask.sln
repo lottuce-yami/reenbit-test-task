@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReenbitTestTask", "ReenbitT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReenbitTestTaskAzureFunction", "ReenbitTestTaskAzureFunction\ReenbitTestTaskAzureFunction.csproj", "{86F1235A-BDFF-49F5-A10F-7E9C93966C7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReenbitTestTaskTests", "ReenbitTestTaskTests\ReenbitTestTaskTests.csproj", "{B476DCE1-F82E-4E03-8059-FF6A16A48ACA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{86F1235A-BDFF-49F5-A10F-7E9C93966C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F1235A-BDFF-49F5-A10F-7E9C93966C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F1235A-BDFF-49F5-A10F-7E9C93966C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B476DCE1-F82E-4E03-8059-FF6A16A48ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B476DCE1-F82E-4E03-8059-FF6A16A48ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B476DCE1-F82E-4E03-8059-FF6A16A48ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B476DCE1-F82E-4E03-8059-FF6A16A48ACA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
