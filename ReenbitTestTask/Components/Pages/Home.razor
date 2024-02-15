@@ -3,24 +3,24 @@
 
 <PageTitle>Main page</PageTitle>
 
-<h1>Main page</h1>
-<p>Upload a file to put into blob storage and receive a notification on the provided email.</p>
+<h1>Blob Storage Notification</h1>
+<p class="lead">Upload a file to put into blob storage and receive a notification on the provided email.</p>
 
 <EditForm Model="Model" OnValidSubmit="@Submit" FormName="BlobStorageForm">
-    <div>
+    <div class="form-group my-2">
         <label>
             File:
-            <InputFile OnChange="@AddFile" accept=".docx"></InputFile>
+            <InputFile OnChange="@AddFile" accept=".docx" class="form-control-file" />
         </label>
     </div>
-    <div>
+    <div class="form-group my-2">
         <label>
             E-mail:
-            <InputText @bind-Value="Model!.Email" />
+            <InputText @bind-Value="Model!.Email" type="email" class="form-control" />
         </label>
     </div>
-    <div>
-        <button type="submit">Submit</button>
+    <div class="form-group my-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <DataAnnotationsValidator/>
     <ValidationSummary/>
