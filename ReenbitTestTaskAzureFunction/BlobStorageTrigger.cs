@@ -1,23 +1,17 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Sas;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using ReenbitTestTaskAzureFunction.Services;
 
 namespace ReenbitTestTaskAzureFunction
 {
     public class BlobStorageTrigger
     {
-        private readonly ILogger<BlobStorageTrigger> _logger;
-        private readonly IConfiguration _configuration;
         private readonly EmailService _emailService;
 
-        public BlobStorageTrigger(ILogger<BlobStorageTrigger> logger, EmailService emailService, IConfiguration configuration)
+        public BlobStorageTrigger(EmailService emailService)
         {
-            _logger = logger;
             _emailService = emailService;
-            _configuration = configuration;
         }
 
         [Function(nameof(BlobStorageTrigger))]
