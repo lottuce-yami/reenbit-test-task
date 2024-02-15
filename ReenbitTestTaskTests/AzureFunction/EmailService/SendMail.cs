@@ -1,6 +1,5 @@
 ﻿using Azure.Communication.Email;
 using Microsoft.Extensions.Configuration;
-using Moq;
 
 namespace ReenbitTestTaskTests.AzureFunction.EmailService;
 

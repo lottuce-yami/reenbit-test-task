@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace ReenbitTestTaskTests.TestTask.BlobStorageService;
+﻿namespace ReenbitTestTaskTests.TestTask.BlobStorageService;
 
 public class SanitizeFileName
 {

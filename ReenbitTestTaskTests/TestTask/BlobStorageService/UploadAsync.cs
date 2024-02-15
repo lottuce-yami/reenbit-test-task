@@ -1,9 +1,6 @@
 ﻿using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using FluentAssertions;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.Extensions.Configuration;
-using Moq;
 using ReenbitTestTask.Models;
 
 namespace ReenbitTestTaskTests.TestTask.BlobStorageService;
