@@ -1,4 +1,5 @@
 using Azure.Storage.Blobs;
+using Azure.Storage.Sas;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -23,7 +24,10 @@ namespace ReenbitTestTaskAzureFunction
         public Task Run([BlobTrigger("documents/{name}")] BlobClient blobClient, string name)
         {
             var recipient = blobClient.GetPropertiesAsync().Result.Value.Metadata["recipient"]!;
-            var uri = blobClient.Uri;
+            var uri = blobClient.GenerateSasUri(
+                BlobSasPermissions.Read,
+                DateTimeOffset.UtcNow.AddHours(1)
+            );
             
             _emailService.SendMail(
                 recipient: recipient,
