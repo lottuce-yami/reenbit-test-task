@@ -25,7 +25,6 @@ public partial class Home : ComponentBase
     
     private async void Submit()
     {
-        Logger.LogInformation("File: {file}, E-mail: {email}", Model!.File!.Name, Model.Email);
-        Logger.LogInformation("{response}", await BlobStorageService.UploadAsync("documents", Model));
+        await BlobStorageService.UploadAsync("documents", Model!);
     }
 }

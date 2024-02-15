@@ -1,4 +1,5 @@
 ﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using ReenbitTestTask.Models;
 
 namespace ReenbitTestTask.Services;
@@ -7,16 +8,17 @@ public class BlobStorageService(IConfiguration configuration)
 {
     private readonly string _connectionString = configuration.GetConnectionString("AzureBlobStorage")!;
 
-    public async Task<string> UploadAsync(string containerName, BlobStorageForm form)
+    public async Task UploadAsync(string containerName, BlobStorageForm form)
     {
         var container = new BlobContainerClient(_connectionString, containerName);
         await container.CreateIfNotExistsAsync();
 
         var blobName = SanitizeFileName(form.File!.Name);
+        var metadata = new Dictionary<string, string> {{ "recipient", form.Email! }};
+        var uploadOptions = new BlobUploadOptions { Metadata = metadata };
         var blob = container.GetBlobClient(blobName);
-
-        var response = await blob.UploadAsync(form.File.OpenReadStream(form.File.Size));
-        return response.GetRawResponse().ToString();
+        
+        await blob.UploadAsync(form.File.OpenReadStream(form.File.Size), uploadOptions);
     }
 
     private static string SanitizeFileName(string fileName)
