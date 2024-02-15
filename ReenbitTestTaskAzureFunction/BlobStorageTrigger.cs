@@ -17,7 +17,7 @@ namespace ReenbitTestTaskAzureFunction
         [Function(nameof(BlobStorageTrigger))]
         public Task Run([BlobTrigger("documents/{name}")] BlobClient blobClient, string name)
         {
-            var recipient = blobClient.GetPropertiesAsync().Result.Value.Metadata["recipient"]!;
+            var recipient = GetMetadata(blobClient, "recipient");
             var uri = blobClient.GenerateSasUri(
                 BlobSasPermissions.Read,
                 DateTimeOffset.UtcNow.AddHours(1)
@@ -30,6 +30,11 @@ namespace ReenbitTestTaskAzureFunction
             );
             
             return Task.CompletedTask;
+        }
+
+        public static string GetMetadata(BlobClient blobClient, string key)
+        {
+            return blobClient.GetPropertiesAsync().Result.Value.Metadata[key];
         }
     }
 }
