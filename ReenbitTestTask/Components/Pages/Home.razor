@@ -7,21 +7,21 @@
 <p class="lead">Upload a file to put into blob storage and receive a notification on the provided email.</p>
 
 <EditForm Model="Model" OnValidSubmit="@Submit" FormName="BlobStorageForm">
+    <DataAnnotationsValidator/>
     <div class="form-group my-2">
         <label>
             File:
-            <InputFile OnChange="@AddFile" accept=".docx" class="form-control-file" />
+            <InputFile OnChange="@AddFile" accept=".docx" class="form-control-file"/>
         </label>
     </div>
     <div class="form-group my-2">
         <label>
             E-mail:
-            <InputText @bind-Value="Model!.Email" type="email" class="form-control" />
+            <InputText @bind-Value="Model!.Email" type="email" class="form-control"/>
         </label>
     </div>
-    <div class="form-group my-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    <DataAnnotationsValidator/>
     <ValidationSummary/>
+    <div class="form-group my-2">
+        <button type="submit" class="btn @(_isSubmitting ? "btn-success" : "btn-primary")">Submit</button>
+    </div>
 </EditForm>

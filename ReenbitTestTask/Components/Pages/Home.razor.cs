@@ -15,6 +15,8 @@ public partial class Home : ComponentBase
     
     [SupplyParameterFromForm(FormName = "BlobStorageForm")]
     public BlobStorageForm? Model { get; set; }
+
+    private bool _isSubmitting;
     
     protected override void OnInitialized() => Model ??= new BlobStorageForm();
 
@@ -23,8 +25,12 @@ public partial class Home : ComponentBase
         Model!.File = e.File;
     }
     
-    private async void Submit()
+    private async Task Submit()
     {
+        _isSubmitting = true;
+        await InvokeAsync(StateHasChanged);
+        
         await BlobStorageService.UploadAsync("documents", Model!);
+        _isSubmitting = false;
     }
 }
