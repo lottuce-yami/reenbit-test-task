@@ -24,4 +24,9 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ReenbitTestTaskAzureFunction\ReenbitTestTaskAzureFunction.csproj" />
+      <ProjectReference Include="..\ReenbitTestTask\ReenbitTestTask.csproj" />
+    </ItemGroup>
+
 </Project>

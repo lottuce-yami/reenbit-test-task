@@ -21,7 +21,7 @@ public class BlobStorageService(IConfiguration configuration)
         await blob.UploadAsync(form.File.OpenReadStream(form.File.Size), uploadOptions);
     }
 
-    private static string SanitizeFileName(string fileName)
+    public static string SanitizeFileName(string fileName)
     {
         var invalidChars = Path.GetInvalidFileNameChars();
         var sanitizedFileName = string.Join("_", fileName.Split(invalidChars, StringSplitOptions.RemoveEmptyEntries)).TrimEnd('.');
